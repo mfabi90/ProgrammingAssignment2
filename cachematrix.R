@@ -1,7 +1,7 @@
 ## Michele Fabi - R Programming Assigment 2 
 
-## This page of code contains two main functions that
-## compute matrix inversion by creating special 
+## This page of code contains functions that
+## compute matrix inversion by creating a special 
 ## object endowed with several useful features. 
 ## Given a reference matrix to be inverted, the code provided in this document
 ## enables to carry out the following tasks:
@@ -24,8 +24,7 @@ makeCacheMatrix <- function(cMatrix = matrix(nrow=0, ncol=0)) {
   setMatrix <- function(x = matrix(nrow=0, ncol=0)) {
     # Control on input type: if it is not matrix, an error is returned.  
     if (!is.matrix(x)) {stop("Input type must be matrix")}
-    # Control on cMatrix: if it is already defined, an error occurs and requires
-    # you to drop the previous value before inserting a new one.
+    # Control on cMatrix: if it is already defined, an error occurs.
     if (ncol(cMatrix) == 0)  {
       cMatrix <<- x
     } else if (ncol(cMatrix) != 0) {stop("CacheMatrix already defined")}  
@@ -51,8 +50,7 @@ makeCacheMatrix <- function(cMatrix = matrix(nrow=0, ncol=0)) {
       print("CacheMatrix dropped")
     }
   }
-  
-  # Stores all the features of makeCacheMatrix in a list, so that when you have an object (mCM) of type
+  # the following lines of code Store all the functions of makeCacheMatrix in a list, so that when you have an object (mCM) of type
   # makeCacheMatrix, you can access it using mCM$function().
   list(dropMatrix = dropMatrix, solveMatrix = solveMatrix,
        setMatrix = setMatrix, getMatrix = getMatrix,
